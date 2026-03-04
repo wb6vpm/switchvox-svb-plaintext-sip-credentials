@@ -1,0 +1,94 @@
+# Disclosure Timeline
+
+This document records the timeline for discovery and coordinated disclosure of
+plaintext SIP trunk credentials stored within Switchvox `.svb` backup files.
+
+The issue allows extraction of carrier authentication credentials and related
+configuration data from backup files. These credentials may allow direct
+authentication to upstream carriers, enabling impersonation of the PBX endpoint
+for both outbound and inbound SIP traffic depending on carrier configuration.
+
+Dates below document the disclosure process and the evolution of the analysis (all dates are Pacific Time (PT), USA).
+
+---
+
+## 2025-12-30
+Initial discovery during analysis of Switchvox `.svb` backup files.
+
+Plaintext storage of SIP trunk credentials, carrier hostname/IP information,
+and DID assignments identified within the backup structure.
+
+## 2025-12-30
+Initial disclosure sent to Sangoma security contacts describing credential
+exposure within `.svb` backups and potential authentication abuse scenarios.
+
+## 2026-01-04
+Additional details provided confirming tested and affected versions.
+
+## 2026-01-04
+Vendor acknowledgement received and coordinated disclosure process initiated.
+
+---
+
+## 2026-02-02
+Follow-up sent after several weeks without updates requesting status on the
+disclosure and advisory progress.
+
+## 2026-02-17
+Additional follow-up sent requesting update on the disclosure and advisory
+status.
+
+## 2026-02-17
+Vendor response indicating the issue would be checked internally.
+
+---
+
+## 2026-02-19
+Vendor response thanking the reporter for the submission and confirming the
+report was under review.
+
+## 2026-02-19
+CVSS v4 scoring discussion initiated and preliminary scoring applied within the
+GitHub security advisory.
+
+## 2026-02-19
+Additional clarification provided regarding CVSS metric selection and GitHub's
+CVSS tooling limitations.
+
+## 2026-02-19
+Vendor acknowledged additional context and discussion around the scoring and
+impact.
+
+## 2026-02-19
+Discussion continued regarding potential final CVSS scoring.
+
+## 2026-02-19
+Disclosure timeline discussed and agreed upon in principle.
+
+---
+
+## 2026-03-03
+Additional impact analysis identified during extended review.
+
+It was determined that credentials extracted from `.svb` backup files may allow
+direct SIP registration to the upstream carrier. Because SIP registration
+determines where inbound calls are routed by the carrier, this may allow an
+attacker to:
+
+- impersonate the PBX endpoint at the carrier level
+- intercept or reroute inbound calls
+- create inbound call denial-of-service conditions
+- potentially capture inbound call audio depending on call flow
+
+This expands the previously documented impact beyond outbound abuse scenarios
+such as toll fraud and caller-ID spoofing.
+
+## 2026-03-03
+Private research repository created to document technical analysis, version
+coverage, disclosure notes, and supporting material related to this
+vulnerability.
+
+---
+
+Additional entries will be added as the coordinated disclosure process
+continues.
