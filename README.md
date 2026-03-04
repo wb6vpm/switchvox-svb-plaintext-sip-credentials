@@ -21,6 +21,20 @@ disclosure process.
 
 ---
 
+## Security Advisory
+
+A GitHub Security Advisory has been opened to coordinate disclosure of this
+issue.
+
+GHSA: [GHSA-mfm3-g35x-c9w8](https://github.com/advisories/GHSA-mfm3-g35x-c9w8)
+
+Additional details will be published in the advisory following completion of
+the coordinated disclosure process.
+
+Disclosure timeline details are documented in `timeline/disclosure.md`.
+
+---
+
 ## Vulnerability Summary
 
 Switchvox `.svb` backup files contain configuration data required to restore a
