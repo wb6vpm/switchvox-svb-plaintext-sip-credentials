@@ -6,4 +6,7 @@ The backup format contains carrier authentication credentials, carrier hostname/
 
 This enables impersonation of the PBX endpoint at the carrier level and may allow abuse scenarios such as outbound call fraud, inbound call interception, service disruption, or endpoint impersonation depending on carrier configuration.
 
-Additional technical documentation and reproduction details will be published following completion of coordinated disclosure.
+## Status
+
+Coordinated disclosure in progress with the vendor.
+Additional technical details will be published after completion of the disclosure process.
