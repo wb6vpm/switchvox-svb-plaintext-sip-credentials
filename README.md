@@ -8,5 +8,5 @@ This enables impersonation of the PBX endpoint at the carrier level and may allo
 
 ## Status
 
-Coordinated disclosure in progress with the vendor.
+Coordinated disclosure in progress with the vendor.  
 Additional technical details will be published after completion of the disclosure process.
