@@ -1,10 +1,10 @@
-# Switchvox .svb Plaintext SIP Credentials
+# Switchvox SVB Plaintext SIP Credentials
 
-This repository documents research related to plaintext SIP trunk credentials stored within Switchvox `.svb` backup files.
+This repository documents security research related to plaintext SIP trunk credentials stored within Switchvox `.svb` backup files.
 
-The backup format contains carrier authentication credentials, carrier hostname/IP information, and DID assignments in plaintext. Possession of a backup file may allow extraction of these credentials and authentication directly to the upstream carrier.
+The backup format contains carrier authentication credentials, carrier hostname/IP information, and DID assignments in plaintext. Possession of a backup file may allow extraction of these credentials and authentication directly to the upstream SIP carrier.
 
-This effectively allows an external party to authenticate as the PBX endpoint at the carrier level.
+This effectively allows an external party to impersonate the PBX endpoint at the carrier level.
 
 ---
 
@@ -23,8 +23,8 @@ A GitHub Security Advisory has been opened to coordinate disclosure of this issu
 
 GHSA: `GHSA-mfm3-g35x-c9w8`
 
-Repository advisory:
-[https://github.com/advisories/GHSA-mfm3-g35x-c9w8](https://github.com/advisories/GHSA-mfm3-g35x-c9w8)
+GitHub Advisory:  
+https://github.com/advisories/GHSA-mfm3-g35x-c9w8
 
 Additional details will be published in the advisory following completion of the coordinated disclosure process.
 
@@ -50,7 +50,7 @@ These credentials may allow direct authentication to the upstream SIP carrier fr
 
 ## Potential Impact
 
-Exposure of SIP trunk credentials may allow an attacker to authenticate as the PBX endpoint at the carrier level.
+Exposure of SIP trunk credentials may allow an attacker to impersonate the PBX endpoint at the carrier level.
 
 Depending on carrier configuration, this may enable:
 
@@ -89,9 +89,9 @@ Depending on carrier configuration, the attacker may be able to:
 
 Technical documentation is available in the `docs/` directory:
 
-- `archive-format.md` – structure of Switchvox `.svb` backup files
-- `vulnerability-mechanics.md` – explanation of the credential exposure vulnerability
-- `credential-storage.md` – example plaintext credential storage extracted from a backup
+- `archive-format.md` – structure of Switchvox `.svb` backup files  
+- `vulnerability-mechanics.md` – explanation of the credential exposure vulnerability  
+- `credential-storage.md` – example plaintext credential storage extracted from a backup  
 
 ---
 
