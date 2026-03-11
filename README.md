@@ -24,7 +24,7 @@ A GitHub Security Advisory has been opened to coordinate disclosure of this issu
 GHSA: `GHSA-mfm3-g35x-c9w8`
 
 Repository advisory:
-`[https://github.com/sangoma/security-switchvox/security/advisories/GHSA-mfm3-g35x-c9w8](https://github.com/advisories/GHSA-mfm3-g35x-c9w8)`
+[https://github.com/sangoma/security-switchvox/security/advisories/GHSA-mfm3-g35x-c9w8](https://github.com/advisories/GHSA-mfm3-g35x-c9w8)
 
 Additional details will be published in the advisory following completion of the coordinated disclosure process.
 
