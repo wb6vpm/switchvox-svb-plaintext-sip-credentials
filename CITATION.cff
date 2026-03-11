@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+title: "Switchvox .svb Plaintext SIP Credentials Vulnerability Research"
+message: "If you use this research, please cite it using the metadata below."
+type: software
+
+authors:
+  - family-names: Overholser
+    given-names: Michael
+    alias: wb6vpm
+
+url: https://github.com/wb6vpm/switchvox-svb-plaintext-sip-credentials
+repository-code: https://github.com/wb6vpm/switchvox-svb-plaintext-sip-credentials
+
+date-released: 2026-03-03
+
+abstract: >
+  Documentation and technical analysis of plaintext SIP trunk credentials stored within Switchvox .svb backup files. The repository documents the backup archive structure, credential storage within database dumps, and the resulting ability to authenticate directly to upstream SIP carriers using exposed Switchvox SIP trunk credentials.
+
+keywords:
+  - vulnerability research
+  - VoIP
+  - SIP
+  - Switchvox
+  - PBX
+  - credential exposure
+  - SIP trunk credentials
+
+license: MIT
