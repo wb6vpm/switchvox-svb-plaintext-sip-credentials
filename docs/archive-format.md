@@ -1,33 +1,28 @@
 # Switchvox `.svb` Backup File Format
 
-This document describes the internal structure of Switchvox `.svb`
-backup files and the process required to extract their contents.
+This document describes the internal structure of Switchvox `.svb` backup files and the process required to extract their contents.
 
-Understanding the archive structure is important because the backup
-format does not apply encryption or obfuscation to sensitive data,
-including SIP provider credentials.
+Understanding the archive structure is important because the backup format does not apply encryption or obfuscation to sensitive data, including SIP provider credentials.
 
 ---
 
-# File Format Overview
+## File Format Overview
 
-Switchvox backup files use the `.svb` extension but are internally
-standard compressed archives.
+Switchvox backup files use the `.svb` extension but are internally standard compressed archives.
 
 Inspection of the file header shows the following signature:
 
-```
+```text
 1f 8b 08
 ```
 
 This corresponds to the **gzip file format**.
 
-As a result, `.svb` files can be decompressed using standard archive
-tools without requiring Switchvox software.
+As a result, `.svb` files can be decompressed using standard archive tools without requiring Switchvox software.
 
 ---
 
-# Extraction Process
+## Extraction Process
 
 The backup can be extracted using common command-line utilities.
 
@@ -39,16 +34,15 @@ gunzip backup.gz
 tar -xf backup
 ```
 
-After decompression, the archive reveals the internal backup
-structure.
+After decompression, the archive reveals the internal backup structure.
 
 ---
 
-# Archive Layout
+## Archive Layout
 
 The decompressed archive contains a directory named:
 
-```
+```text
 backup_package/
 ```
 
@@ -56,56 +50,57 @@ This directory contains the full system backup.
 
 Example structure:
 
-```
+```text
 backup_package/
 ├── metadata.json
-├── subsystem_*.tar
-├── subsystem_*.tar
-├── subsystem_*.tar
+├── HST_PBX_CONFIG*.tar
+├── MOH_FILES*.tar
+├── PWE_VOICEMAIL_AND*.tar
+├── XXX_SSL_CERTS*.tar
+├── IAX_RSA_KEYS*.tar
+├── ICE_SOUNDS*.tar
 └── DUMP_MINUS_LOGS
 ```
 
 ---
 
-# Subsystem Archives
+## Subsystem Archives
 
 The `backup_package` directory contains multiple subsystem archives.
 
-These are standard tar files containing different components of the
-Switchvox system.
+These are standard tar files containing different components of the Switchvox system.
 
 Examples observed in backups include archives containing:
 
 - PBX configuration
-- voicemail messages
+- voicemail messages and greetings
 - system prompts
 - music-on-hold files
 - SSL certificates
 - IAX RSA keys
 - other subsystem data
 
-Each subsystem archive can be extracted independently.
+Each subsystem archive can be extracted independently using standard archive utilities.
 
 ---
 
-# Database Dump
+## Database Dump
 
 The file:
 
-```
+```text
 DUMP_MINUS_LOGS
 ```
 
 contains a PostgreSQL database export of the Switchvox configuration database.
 
-The name indicates that the dump excludes runtime log tables but includes configuration and operational data required to reconstruct
-the PBX.
+The name indicates that the dump excludes runtime log tables but includes configuration and operational data required to reconstruct the PBX.
 
 This dump contains multiple configuration tables including those used for SIP provider configuration.
 
 ---
 
-# Sensitive Data Exposure
+## Sensitive Data Exposure
 
 Inspection of the database dump shows that multiple sensitive configuration values are stored in plaintext.
 
@@ -123,7 +118,7 @@ Because the backup format does not encrypt or obfuscate this data, any party wit
 
 ---
 
-# Security Implications
+## Security Implications
 
 The `.svb` backup format contains all configuration information required to recreate the PBX system.
 
@@ -131,6 +126,6 @@ However, because sensitive authentication credentials are stored directly within
 
 Further details regarding credential exposure are documented in:
 
-```
+```text
 docs/credential-storage.md
 ```
