@@ -1,0 +1,6 @@
+blank_issues_enabled: false
+
+contact_links:
+  - name: Vulnerability Disclosure Discussion
+    url: https://github.com/advisories/GHSA-mfm3-g35x-c9w8
+    about: Security discussions related to this vulnerability should occur in the associated GitHub Security Advisory.
