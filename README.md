@@ -26,7 +26,7 @@ disclosure process.
 A GitHub Security Advisory has been opened to coordinate disclosure of this
 issue.
 
-GHSA: [GHSA-mfm3-g35x-c9w8](https://github.com/advisories/GHSA-mfm3-g35x-c9w8)
+GHSA: [GHSA-mfm3-g35x-c9w8](https://github.com/sangoma/security-switchvox/security/advisories/GHSA-mfm3-g35x-c9w8)
 
 Additional details will be published in the advisory following completion of
 the coordinated disclosure process.
