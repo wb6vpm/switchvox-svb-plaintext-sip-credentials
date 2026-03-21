@@ -88,6 +88,15 @@ Private research repository created to document technical analysis, version
 coverage, disclosure notes, and supporting material related to this
 vulnerability.
 
+## 2026-03-20
+Vendor releases Switchvox 8.4
+
+Sangoma releases Switchvox version 8.4. The release includes a change described as an "Encrypted Backup Restore process."
+
+Testing confirms that backup files in version 8.4 are no longer stored as directly readable gzip/tar archives and instead use an encrypted format (e.g., "Salted__" header observed).
+
+The impact of this change is consistent with mitigation of plaintext credential exposure in backup files described in this research. However, no public security advisory or CVE has been issued by the vendor at the time of this release.
+
 ---
 
 Additional entries will be added as the coordinated disclosure process
