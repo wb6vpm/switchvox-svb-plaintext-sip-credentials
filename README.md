@@ -65,6 +65,15 @@ Because SIP registration determines the destination for inbound call delivery, a
 
 ---
 
+## Severity
+
+This issue is assessed as **Critical** under CVSS v4.0.
+
+- **Vector:** `CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H`
+- See: [CVSS v4.0 Justification](docs/cvss-v4-justification.md)
+
+---
+
 ## Example Attack Scenario
 
 1. An attacker obtains a Switchvox `.svb` backup file through backup exposure, misconfigured storage, administrative access, or other data exposure.
@@ -92,6 +101,7 @@ Technical documentation is available in the `docs/` directory:
 - `archive-format.md` – structure of Switchvox `.svb` backup files  
 - `vulnerability-mechanics.md` – explanation of the credential exposure vulnerability  
 - `credential-storage.md` – example plaintext credential storage extracted from a backup  
+- `cvss-v4-justification.md` – CVSS v4.0 scoring rationale and metric justification  
 
 ---
 
