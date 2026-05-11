@@ -105,10 +105,20 @@ Researcher requests clarification on CVE status, explicitly distinguishing betwe
 
 Researcher offers to submit a CVE request independently if necessary to ensure timely tracking.
 
-## Current Status (as of 2026-05-01)
+## 2026-05-11
+No response received to the 2026-05-01 follow-up request regarding advisory publication timeline or CVE submission status.
+
+## 2026-05-11
+Researcher submits independent CVE request to MITRE following expiration of the previously discussed disclosure timeline and lack of further vendor response.
+
+MITRE acknowledges receipt of the request and assigns internal tracking case 2038858.
+
+## Current Status (as of 2026-05-11)
 
 - Patch addressing the issue released in Switchvox 8.4 (2026-03-20)  
 - Vendor-stated publication target (end of March 2026) has passed  
+- No further vendor response received following the 2026-05-01 follow-up request  
+- Independent CVE request submitted to MITRE on 2026-05-11  
 - CVE has not yet been issued  
 - GitHub Security Advisory remains unpublished with incomplete metadata (e.g., affected versions, patched versions, severity)  
 
