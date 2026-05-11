@@ -6,12 +6,13 @@ The backup format contains carrier authentication credentials, carrier hostname/
 
 This effectively allows an external party to impersonate the PBX endpoint at the carrier level.
 
+Vendor remediation changes were released in Switchvox 8.4 prior to public release of this repository.
+
 ---
 
 ## Status
 
-Coordinated disclosure in progress with the vendor.  
-Additional technical details will be published after completion of the disclosure process.
+Coordinated disclosure was initiated with the vendor. Patch-related changes were released in Switchvox 8.4, and an independent CVE request has been submitted to MITRE following expiration of the previously discussed publication timeline.
 
 Disclosure timeline details are documented in `timeline/disclosure.md`.
 
@@ -25,6 +26,7 @@ GHSA: `GHSA-mfm3-g35x-c9w8`
 
 GitHub Advisory:  
 https://github.com/advisories/GHSA-mfm3-g35x-c9w8
+(Note: The advisory is currently private or unpublished as part of the coordinated disclosure process and may not yet be publicly accessible.)
 
 Additional details will be published in the advisory following completion of the coordinated disclosure process.
 
@@ -122,7 +124,7 @@ Overview of the vulnerability and current disclosure status.
 
 This repository documents research related to a security issue identified in Switchvox backup files.
 
-The vendor was notified and coordinated disclosure is currently in progress. Additional technical details will be published following completion of the disclosure process.
+The vendor was notified and coordinated disclosure was initiated prior to public release of this repository. Patch-related changes were released in Switchvox 8.4, and an independent CVE request has been submitted to MITRE following expiration of the previously discussed publication timeline.
 
 ---
 
