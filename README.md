@@ -105,17 +105,18 @@ Depending on carrier configuration, the attacker may be able to:
 
 Technical documentation is available in the `docs/` directory:
 
-- `archive-format.md` – structure of Switchvox `.svb` backup files  
-- `vulnerability-mechanics.md` – explanation of the credential exposure vulnerability  
-- `credential-storage.md` – example plaintext credential storage extracted from a backup  
-- `cvss-v4-justification.md` – CVSS v4.0 scoring rationale and metric justification  
+- `archive-format.md` – structure of Switchvox `.svb` backup files
+- `vulnerability-mechanics.md` – explanation of the credential exposure vulnerability
+- `credential-storage.md` – example plaintext credential storage extracted from a backup
+- `cvss-v3.1-scoring-discussion.md` – discussion of CVSS v3.1 scoring interpretation considerations and downstream operational impact analysis
+- `cvss-v4-justification.md` – CVSS v4.0 scoring rationale and metric justification
 - `cwe-analysis.md` – discussion of applicable CWE classifications related to plaintext credential exposure and backup handling
-- 
+
 ---
 
 ## Repository Contents
 
-`docs/`  
+`docs/`
 Technical analysis and documentation describing the vulnerability mechanics and credential exposure behavior.
 
 `timeline/`  
