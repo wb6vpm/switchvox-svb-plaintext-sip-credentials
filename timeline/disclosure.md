@@ -113,13 +113,20 @@ Researcher submits independent CVE request to MITRE following expiration of the 
 
 MITRE acknowledges receipt of the request and assigns internal tracking case 2038858.
 
+## 2026-05-11
+MITRE assigns CVE-2026-45362 to track this vulnerability.
+
+The initial public CVE record classifies the issue as CWE-312 ("Cleartext Storage of Sensitive Information") and assigns a preliminary CVSS v3.1 score of 3.2 (LOW).
+
+Additional CWE analysis and impact discussion are documented within this repository.
+
 ## Current Status (as of 2026-05-11)
 
 - Patch addressing the issue released in Switchvox 8.4 (2026-03-20)  
 - Vendor-stated publication target (end of March 2026) has passed  
 - No further vendor response received following the 2026-05-01 follow-up request  
 - Independent CVE request submitted to MITRE on 2026-05-11  
-- CVE has not yet been issued  
+- CVE-2026-45362 has been assigned  
 - GitHub Security Advisory remains unpublished with incomplete metadata (e.g., affected versions, patched versions, severity)  
 
 The coordinated disclosure process remains ongoing.
