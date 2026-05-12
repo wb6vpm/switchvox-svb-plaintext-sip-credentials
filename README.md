@@ -108,7 +108,8 @@ Technical documentation is available in the `docs/` directory:
 - `vulnerability-mechanics.md` – explanation of the credential exposure vulnerability  
 - `credential-storage.md` – example plaintext credential storage extracted from a backup  
 - `cvss-v4-justification.md` – CVSS v4.0 scoring rationale and metric justification  
-
+- `cwe-analysis.md` – discussion of applicable CWE classifications related to plaintext credential exposure and backup handling
+- 
 ---
 
 ## Repository Contents
