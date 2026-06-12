@@ -29,9 +29,7 @@ CVE: `CVE-2026-45362`
 GHSA: `GHSA-mfm3-g35x-c9w8`
 
 GitHub Advisory:  
-https://github.com/advisories/GHSA-mfm3-g35x-c9w8
-
-(Note: The advisory is currently private or unpublished as part of the coordinated disclosure process and may not yet be publicly accessible.)
+https://github.com/sangoma/security-switchvox/security/advisories/GHSA-mfm3-g35x-c9w8
 
 Additional advisory metadata and publication details may be updated as the disclosure process continues.
 
