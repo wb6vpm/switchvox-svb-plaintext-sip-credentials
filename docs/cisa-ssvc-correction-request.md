@@ -51,7 +51,7 @@ The multi-appliance incident chronology, first-hand audit observations, and repr
 
 ## Public Support
 
-- [Public research snapshot at commit 97879c7](https://github.com/wb6vpm/switchvox-svb-plaintext-sip-credentials/tree/97879c77c2c86fb25e8b6a91d7f9dd5f02522305)
+- [Public research snapshot at commit 64542f3](https://github.com/wb6vpm/switchvox-svb-plaintext-sip-credentials/tree/64542f35806f9b8400ab598989d0d58c35c73f91)
 - [Technical Analysis](technical-analysis.md), including deterministic archive-extraction steps and a documented synthetic test case
 - [Observed Production Incident](observed-incident.md), including the sanitized chronology and evidentiary limits
 - [Evidence Manifest](../evidence/README.md), including the retained-correspondence inventory
@@ -90,7 +90,7 @@ During the response, I reviewed audit entries on every affected Switchvox PBX. O
 I later reproduced that affected Switchvox backups expose the current carrier username, password, provider address, and trunk context in plaintext. The multi-appliance incident chronology, audit observations, and reproduced mechanics are consistent with reacquisition from the downloaded backups, but do not establish that path conclusively. The backup creation and download events on every affected PBX are based on my direct observations during incident response. I have not recovered the raw Switchvox audit entries or a standalone carrier authentication export, so the underlying artifacts are not currently available for independent reexamination. Accordingly, I do not identify the person or system that initiated the backup activity or claim that the downloaded backups were the exclusive possible source. That limitation applies to attribution, not to what I observed.
 
 The public technical record is here:
-https://github.com/wb6vpm/switchvox-svb-plaintext-sip-credentials/tree/97879c77c2c86fb25e8b6a91d7f9dd5f02522305
+https://github.com/wb6vpm/switchvox-svb-plaintext-sip-credentials/tree/64542f35806f9b8400ab598989d0d58c35c73f91
 
 The CISA assessment reviewed for this request is here:
 https://github.com/cisagov/vulnrichment/blob/8456a09f90519e02a6ea1392914275c7cbcf2e64/2026/45xxx/CVE-2026-45362.json
