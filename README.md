@@ -16,25 +16,26 @@ Authorized testing confirmed that credentials recovered from affected backups co
 | Researcher-tested versions | 6.8, 7.9.5.2, and 8.3 |
 | Patched version | [8.4](https://sangomakb.atlassian.net/wiki/spaces/Switchvox/pages/1521647617) |
 | Weaknesses | CWE-312, CWE-522, and CWE-530 |
+| CVE record score | MITRE CNA: CVSS v3.1 3.2, Low; correction request prepared by the researcher |
 | CISA SSVC status | `Exploitation: none`; correction request prepared by the researcher |
 
 Sangoma released encrypted backup handling in Switchvox 8.4. Upgrading does not revoke credentials contained in backups created by earlier versions.
 
 ## Observed Production Incident
 
-This vulnerability was discovered while responding to a carrier-confirmed toll-fraud incident affecting multiple subaccounts at the upstream carrier.
+This vulnerability was discovered while responding to a carrier-confirmed toll-fraud incident involving multiple independent Switchvox PBX appliances. Each affected PBX used a separate SIP subaccount at the upstream carrier.
 
 The following events were established or observed during the response:
 
-1. The carrier attributed unauthorized calls to the affected account and SIP subaccounts.
-2. Responders rotated the affected credentials.
-3. Switchvox logs reviewed during the incident showed that a fresh system backup was created and downloaded after the rotation.
-4. Unauthorized traffic attributed to affected SIP subaccounts continued after credential rotation. Based on carrier and account records available during the response, the researcher's contemporaneous assessment was that the replacement credentials had been reacquired and used.
+1. The carrier attributed unauthorized calls to the affected account and SIP subaccounts. Each affected subaccount was configured on a separate Switchvox PBX appliance.
+2. Responders rotated the SIP credentials assigned to each affected PBX's carrier subaccount.
+3. On every affected PBX, Switchvox audit entries reviewed during the incident showed that a fresh system backup was created and downloaded after the associated SIP credentials had been rotated.
+4. The carrier later continued to attribute unauthorized traffic to affected SIP subaccounts after those rotations. Based on carrier and account records available during the response, the researcher's contemporaneous assessment was that the replacement credentials had been reacquired and used.
 5. Carrier fraud controls suspended outbound calling for customers under the affected account structure for approximately 48 hours.
 
-The incident establishes real unauthorized carrier-account use, financial exposure, and operational disruption. The sequence strongly supports the assessment that the newly generated backup was used to reacquire the replacement credentials.
+The incident establishes real unauthorized carrier-account use, financial exposure, and operational disruption. The repeated post-rotation backup activity across independent PBXs, followed by continued unauthorized traffic attributed to affected SIP subaccounts, strongly supports the assessment that replacement credentials were reacquired from the newly generated backups.
 
-The original Switchvox log files and a standalone carrier authentication export have not been recovered for public preservation. The available record therefore does not establish who initiated the backup download, prove that the backup was the only acquisition path, or exclude every alternative source of credential exposure. Those limitations affect attribution of the acquisition path. They do not change the confirmed toll fraud, credential rotation, continued unauthorized traffic after rotation, or service suspension.
+The raw Switchvox audit entries reviewed on the affected PBXs and a standalone carrier authentication export have not been recovered for public preservation. The available record therefore does not establish who initiated any backup creation or download, prove that the downloaded backups were the exclusive acquisition path, or exclude every alternative source of credential exposure. Those limitations affect attribution of the acquisition path. They do not change the confirmed toll fraud, credential rotations, continued unauthorized traffic after those rotations, or service suspension.
 
 See [Observed Production Incident](docs/observed-incident.md) for the sanitized chronology and evidence status.
 
@@ -60,8 +61,8 @@ Possession of an affected backup is the required precondition. Once the file is 
 ### Observed impact
 
 - unauthorized outbound call origination
-- toll fraud across multiple carrier subaccounts
-- continued unauthorized traffic attributed to affected SIP subaccounts after credential rotation
+- toll fraud across carrier SIP subaccounts assigned to multiple independent Switchvox PBX appliances
+- continued unauthorized traffic attributed to affected SIP subaccounts after the associated credential rotations
 - carrier fraud mitigation affecting legitimate customers
 - approximately 48 hours without outbound calling under the affected account structure
 
@@ -98,7 +99,7 @@ Published assessments currently differ:
 - The researcher's evidence-led carrier-abuse scenario is **CVSS-B v4.0 8.2, High**: `CVSS:4.0/AV:N/AC:L/AT:N/PR:H/UI:N/VC:H/VI:N/VA:N/SC:N/SI:H/SA:N`.
 - The researcher's confidentiality-only baseline is **CVSS-B v4.0 6.9, Medium**: `CVSS:4.0/AV:N/AC:L/AT:N/PR:H/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N`.
 
-These scores make different assumptions about how the backup is acquired and whether the demonstrated carrier-side integrity impact is included. CVSS does not directly quantify financial loss, response cost, customer count, or reputational harm. The 48-hour suspension is not scored as subsequent-system availability impact here because it was a defensive carrier response, not attacker-controlled technical denial.
+These scores make different assumptions about how the backup is acquired and whether the evidence-supported carrier-side integrity impact is included. CVSS does not directly quantify financial loss, response cost, customer count, or reputational harm. The 48-hour suspension is not scored as subsequent-system availability impact here because it was a defensive carrier response, not attacker-controlled technical denial.
 
 See [Severity and Classification](docs/severity-and-classification.md) for the scoring analysis, CWE mappings, and current exploitation-status dispute.
 
@@ -107,6 +108,7 @@ See [Severity and Classification](docs/severity-and-classification.md) for the s
 - [Technical Analysis](docs/technical-analysis.md)
 - [Observed Production Incident](docs/observed-incident.md)
 - [Severity and Classification](docs/severity-and-classification.md)
+- [MITRE CVE Record Update Request](docs/mitre-cve-record-update-request.md)
 - [CISA SSVC Exploitation Reassessment Request](docs/cisa-ssvc-correction-request.md)
 - [Disclosure Timeline](docs/disclosure-timeline.md)
 - [Evidence Manifest](evidence/README.md)

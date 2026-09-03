@@ -4,7 +4,7 @@ This timeline records discovery, vendor coordination, remediation, and publicati
 
 ## 2025-12-30
 
-- The vulnerability was identified during response to toll fraud affecting multiple carrier subaccounts.
+- The vulnerability was identified during response to toll fraud involving multiple independent Switchvox PBX appliances, each using a separate SIP subaccount at the upstream carrier. On every affected PBX, audit entries reviewed during response showed creation and download of a fresh backup after the associated SIP credentials had been rotated.
 - Analysis of Switchvox `.svb` backups found plaintext SIP provider usernames, passwords, carrier addresses, DID assignments, and related configuration.
 - The issue was reported to Sangoma security contacts.
 
@@ -74,8 +74,10 @@ This timeline records discovery, vendor coordination, remediation, and publicati
 ## 2026-09-02 Pacific Time / 2026-09-03 UTC
 
 - The public research record was revised to document the production incident that led to discovery, separate confirmed facts from acquisition-path attribution, and correct stale coordinated-disclosure language.
+- The incident record was corrected to reflect that each affected carrier subaccount corresponded to a separate Switchvox PBX and that post-rotation backup creation and download was observed on every affected appliance.
 - The researcher recovered retained carrier fraud correspondence, a signed warning letter, suspension and restoration messages, and an Industry Traceback Group request from the incident period.
 - The [CISA ADP enrichment for CVE-2026-45362](https://cveawg.mitre.org/api/cve/CVE-2026-45362) continued to report `Exploitation: none`. The researcher disputes that assessment based on the observed incident and is assembling the surviving evidence for review.
+- A corrected MITRE CVE record update request was prepared to supersede earlier standalone 10.0 proposals and request reassessment of the CNA's 3.2 Low score.
 
 ## Current Status
 

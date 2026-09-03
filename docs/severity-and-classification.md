@@ -4,7 +4,7 @@
 
 The published CVSS scores for CVE-2026-45362 are Low and Medium. The researcher's evidence-led carrier-abuse scenario is **CVSS-B 8.2, High** under CVSS v4.0. A confidentiality-only researcher baseline is **CVSS-B 6.9, Medium**.
 
-The previous 10.0 vector has been withdrawn as a standalone assessment of CVE-2026-45362. It mixed different stages of the attack chain: it used Network because the recovered credential is later used against a carrier, None for privileges because the analysis began after a protected backup had already been acquired, and High vulnerable-system integrity and availability for effects that occur at the carrier. CVSS requires exploitability metrics to be assessed against the vulnerable system and subsequent-system effects to be recorded separately.
+The previous CVSS v3.1 and v4.0 10.0 vectors have been withdrawn as standalone assessments of CVE-2026-45362. They mixed different stages of the attack chain: they used Network because the recovered credential is later used against a carrier, None for privileges because the analysis began after a protected backup had already been acquired, and vulnerable-system integrity and availability values for effects that occur at the carrier. CVSS requires exploitability metrics to be assessed against the vulnerable system and subsequent-system effects to be recorded separately.
 
 ## Published Assessments
 
@@ -38,10 +38,18 @@ CVSS:4.0/AV:N/AC:L/AT:N/PR:H/UI:N/VC:H/VI:N/VA:N/SC:N/SI:H/SA:N
 | VI | None | Reading the backup does not itself modify Switchvox data. |
 | VA | None | Reading the backup does not itself deny availability of the Switchvox appliance. |
 | SC | None | Inbound interception has not been treated as a demonstrated capability for the primary vector. |
-| SI | High | Recovered credentials were validated for direct carrier authentication outside PBX controls. The production incident also established carrier-attributed unauthorized call sessions, call-detail records, and billing activity under the affected victim account. This is serious integrity impact to a separately controlled carrier system. |
+| SI | High | Recovered credentials were validated for direct carrier authentication outside PBX controls. The credential permits attacker-selected authenticated call origination under a victim subaccount, defeating the carrier authentication boundary. The production incident also established carrier-attributed unauthorized call sessions under affected SIP subaccounts. This is serious integrity impact to a separately controlled carrier system. |
 | SA | None | The provider's fraud-response suspension is real operational harm, but it is not treated as direct technical availability impact to the carrier for the base vector. |
 
 `SI:H` is the decisive and most contestable metric in this scenario. It is appropriate where the recovered credential completely subverts the carrier account's call-authentication boundary, permits attacker-selected origination within the affected account's allowed call scope under the victim identity, and causes a direct, serious technical consequence. `SI:L` is the conservative choice when that direct, serious technical consequence cannot be substantiated.
+
+Using `SI:L` produces the following intermediate assessment:
+
+```text
+CVSS:4.0/AV:N/AC:L/AT:N/PR:H/UI:N/VC:H/VI:N/VA:N/SC:N/SI:L/SA:N
+```
+
+**CVSS-B score: 6.9, Medium**
 
 High-level administrative access permits backup export and provider management, but the exposure still creates a meaningful privilege delta: the exported backup reveals the existing reusable carrier secret itself. That secret can be exercised directly against carrier infrastructure, outside PBX dial-plan and monitoring controls, and after access to the PBX is lost.
 
@@ -69,7 +77,7 @@ Sangoma's vector correctly calculates to 4.4 and reasonably assigns High privile
 
 CVSS measures technical severity. It does not directly quantify financial loss, response cost, customer count, or reputational harm.
 
-For this vulnerability, those factors are not speculation. The incident involved toll fraud across multiple subaccounts, continued unauthorized traffic attributed to affected SIP subaccounts after credential rotation, and approximately 48 hours of outbound service suspension under the affected account structure. The suspension is not scored as `SA` here because it was a defensive carrier response, not attacker-controlled technical denial. It remains part of the actual risk and incident record.
+For this vulnerability, those factors are not speculation. The incident involved multiple independent Switchvox PBX appliances, each using a separate carrier SIP subaccount; toll fraud across affected subaccounts; continued unauthorized traffic attributed to affected subaccounts after the associated credential rotations; and approximately 48 hours of outbound service suspension under the affected account structure. The suspension is not scored as `SA` here because it was a defensive carrier response, not attacker-controlled technical denial. It remains part of the actual risk and incident record.
 
 ## Exploitation Status
 
@@ -77,8 +85,8 @@ As of 2026-09-03, [CISA's ADP enrichment](https://cveawg.mitre.org/api/cve/CVE-2
 
 The evidence distinguishes between two propositions:
 
-- The toll fraud, continued unauthorized traffic after credential rotation, and service disruption are confirmed. The researcher's contemporaneous assessment, based on records available during response, was that the replacement credentials had been reacquired and used.
-- The incident sequence strongly supports the newly generated backup as the credential reacquisition path, but the original Switchvox logs have not yet been recovered for public preservation and the acquisition path is not claimed as forensically exclusive.
+- The toll fraud, credential rotations for each affected PBX's carrier subaccount, continued unauthorized traffic after those rotations, and service disruption are confirmed. The researcher's contemporaneous assessment, based on records available during response, was that the replacement credentials had been reacquired and used.
+- Audit entries reviewed on every affected PBX showed post-rotation creation and download of a fresh backup. This repeated multi-appliance sequence strongly supports the newly generated backups as the credential reacquisition path, but the raw Switchvox audit entries have not been recovered and the acquisition path is not claimed as forensically exclusive.
 
 The current `none` assessment appears inconsistent with the CISA Coordinator decision point. The public [technical analysis](technical-analysis.md) provides deterministic extraction steps and a documented synthetic test case, while the CISA Coordinator definition of `poc` includes well-known exploitation methods and privately attested evidence that has not been shared publicly. At minimum, those public steps appear to support `poc`, even if `active` requires CISA's private review of the incident evidence.
 

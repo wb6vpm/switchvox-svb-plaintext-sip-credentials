@@ -101,7 +101,7 @@ Use of the credentials occurs directly between the external endpoint and the car
 
 ## Resulting Capabilities and Consequences
 
-Unauthorized outbound call origination and toll fraud were observed in the production incident that led to this research.
+Unauthorized outbound call origination and toll fraud were observed in the production incident that led to this research. The affected carrier SIP subaccounts corresponded to multiple independent Switchvox PBX appliances.
 
 Other capabilities depend on the carrier's configuration:
 
