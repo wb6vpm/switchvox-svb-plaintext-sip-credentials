@@ -51,7 +51,7 @@ The multi-appliance incident chronology, first-hand audit observations, and repr
 
 ## Public Support
 
-- [Public research snapshot at commit 98a9592](https://github.com/wb6vpm/switchvox-svb-plaintext-sip-credentials/tree/98a9592c95364f6f82236965341834ec3beb233b)
+- [Public research snapshot at commit 701510b](https://github.com/wb6vpm/switchvox-svb-plaintext-sip-credentials/tree/701510b9683aac6858dc970c93871812217d125e)
 - [Technical Analysis](technical-analysis.md), including deterministic archive-extraction steps and a documented synthetic test case
 - [Observed Production Incident](observed-incident.md), including the sanitized chronology and evidentiary limits
 - [Evidence Manifest](../evidence/README.md), including the retained-correspondence inventory
@@ -90,7 +90,7 @@ After I rotated the SIP credentials assigned to each affected PBX's carrier suba
 I later reproduced that affected Switchvox backups expose the current carrier username, password, provider address, and trunk context in plaintext. The multi-appliance incident chronology, audit observations, and reproduced mechanics are consistent with reacquisition from the downloaded backups, but do not establish that path conclusively. The backup creation and download events on every affected PBX are based on my direct observations during incident response. During the active response, containment, credential rotation, and service restoration were the immediate priorities, so I did not separately export the audit entries for long-term preservation. I have not since recovered the raw entries, and I also do not have a standalone carrier authentication export. The underlying artifacts are therefore not currently available for independent reexamination. Accordingly, I do not identify the person or system that initiated the backup activity or claim that the downloaded backups were the exclusive possible source. That limitation applies to attribution, not to what I observed.
 
 The public technical record is here:
-https://github.com/wb6vpm/switchvox-svb-plaintext-sip-credentials/tree/98a9592c95364f6f82236965341834ec3beb233b
+https://github.com/wb6vpm/switchvox-svb-plaintext-sip-credentials/tree/701510b9683aac6858dc970c93871812217d125e
 
 The CISA assessment reviewed for this request is here:
 https://github.com/cisagov/vulnrichment/blob/8456a09f90519e02a6ea1392914275c7cbcf2e64/2026/45xxx/CVE-2026-45362.json
