@@ -71,9 +71,10 @@ This timeline records discovery, vendor coordination, remediation, and publicati
 - The advisory lists versions before 8.4 as affected and version 8.4 as patched.
 - Sangoma added CWE-522 and CWE-530 and published CVSS v4.0 score 4.4, Medium.
 
-## 2026-09-03
+## 2026-09-02 Pacific Time / 2026-09-03 UTC
 
 - The public research record was revised to document the production incident that led to discovery, separate confirmed facts from acquisition-path attribution, and correct stale coordinated-disclosure language.
+- The researcher recovered retained carrier fraud correspondence, a signed warning letter, suspension and restoration messages, and an Industry Traceback Group request from the incident period.
 - The [CISA ADP enrichment for CVE-2026-45362](https://cveawg.mitre.org/api/cve/CVE-2026-45362) continued to report `Exploitation: none`. The researcher disputes that assessment based on the observed incident and is assembling the surviving evidence for review.
 
 ## Current Status

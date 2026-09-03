@@ -1,0 +1,49 @@
+name: Documentation correction
+description: Report a factual error, broken link, or missing public source
+title: "[Correction] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form only for non-sensitive documentation corrections. Do not post credentials, backups, packet captures, logs, call-detail records, account identifiers, customer information, or other private evidence.
+
+  - type: input
+    id: location
+    attributes:
+      label: Affected page or section
+      description: Link to the public page or name the file and section.
+      placeholder: docs/technical-analysis.md, Credential Locations
+    validations:
+      required: true
+
+  - type: textarea
+    id: current
+    attributes:
+      label: Current statement or problem
+      description: Describe the factual error, broken link, ambiguity, or omission.
+    validations:
+      required: true
+
+  - type: textarea
+    id: correction
+    attributes:
+      label: Proposed correction
+      description: State the replacement wording or expected result.
+    validations:
+      required: true
+
+  - type: textarea
+    id: public_sources
+    attributes:
+      label: Public supporting sources
+      description: Include only public links. Do not paste or attach sensitive records.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Sensitive-data check
+      options:
+        - label: I have not included credentials, backups, logs, packet captures, call-detail records, account identifiers, customer data, or other sensitive evidence.
+          required: true

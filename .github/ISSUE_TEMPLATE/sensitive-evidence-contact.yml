@@ -1,0 +1,38 @@
+name: Sensitive evidence contact request
+description: Request a private exchange channel without posting the evidence
+title: "[Evidence contact] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form only to request a private exchange channel. Do not describe or attach the sensitive evidence here. This issue and everything entered into it will be public.
+
+  - type: input
+    id: subject
+    attributes:
+      label: Related public subject
+      description: Identify only the CVE or public repository page involved.
+      placeholder: CVE-2026-45362
+    validations:
+      required: true
+
+  - type: dropdown
+    id: relationship
+    attributes:
+      label: General relationship to the evidence
+      description: Choose the broadest accurate category. Do not identify a customer, account, or affected party.
+      options:
+        - Research or incident-response record
+        - Vendor or service-provider record
+        - Documentation correction requiring private support
+        - Other sensitive supporting material
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Public-content check
+      options:
+        - label: I have not included or attached credentials, backups, logs, packet captures, call-detail records, account identifiers, customer data, or other sensitive evidence.
+          required: true

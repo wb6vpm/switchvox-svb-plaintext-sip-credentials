@@ -17,8 +17,8 @@ abstract: >
   SIP provider credentials in plaintext within .svb backups. Authorized testing
   confirmed that recovered credentials could authenticate directly to upstream
   SIP infrastructure. The vulnerability was discovered during response to a
-  production toll-fraud incident involving valid carrier credentials and
-  operational disruption.
+  production toll-fraud incident involving carrier-attributed unauthorized
+  traffic and operational disruption.
 
 identifiers:
   - type: other

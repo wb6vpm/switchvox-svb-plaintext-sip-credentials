@@ -16,24 +16,25 @@ Authorized testing confirmed that credentials recovered from affected backups co
 | Researcher-tested versions | 6.8, 7.9.5.2, and 8.3 |
 | Patched version | [8.4](https://sangomakb.atlassian.net/wiki/spaces/Switchvox/pages/1521647617) |
 | Weaknesses | CWE-312, CWE-522, and CWE-530 |
+| CISA SSVC status | `Exploitation: none`; correction request prepared by the researcher |
 
 Sangoma released encrypted backup handling in Switchvox 8.4. Upgrading does not revoke credentials contained in backups created by earlier versions.
 
 ## Observed Production Incident
 
-This vulnerability was discovered while responding to an actual toll-fraud incident affecting multiple subaccounts at the upstream carrier.
+This vulnerability was discovered while responding to a carrier-confirmed toll-fraud incident affecting multiple subaccounts at the upstream carrier.
 
-The following events were observed during the response:
+The following events were established or observed during the response:
 
-1. Unauthorized calls were placed using valid SIP carrier credentials.
+1. The carrier attributed unauthorized calls to the affected account and SIP subaccounts.
 2. Responders rotated the affected credentials.
 3. Switchvox logs reviewed during the incident showed that a fresh system backup was created and downloaded after the rotation.
-4. The newly rotated credentials were subsequently used for additional unauthorized calls.
+4. Unauthorized traffic attributed to affected SIP subaccounts continued after credential rotation. Based on carrier and account records available during the response, the researcher's contemporaneous assessment was that the replacement credentials had been reacquired and used.
 5. Carrier fraud controls suspended outbound calling for customers under the affected account structure for approximately 48 hours.
 
-The incident establishes real credential abuse, financial exposure, and operational disruption. The sequence strongly supports the assessment that plaintext credentials from the newly generated backup were used to reacquire the replacement credentials.
+The incident establishes real unauthorized carrier-account use, financial exposure, and operational disruption. The sequence strongly supports the assessment that the newly generated backup was used to reacquire the replacement credentials.
 
-The original Switchvox log files have not yet been recovered for public preservation. The available record therefore does not establish who initiated the backup download, prove that the backup was the only acquisition path, or exclude every alternative source of credential exposure. Those limitations affect attribution of the acquisition path. They do not change the confirmed toll fraud, credential rotation, renewed abuse of valid credentials, or service suspension.
+The original Switchvox log files and a standalone carrier authentication export have not been recovered for public preservation. The available record therefore does not establish who initiated the backup download, prove that the backup was the only acquisition path, or exclude every alternative source of credential exposure. Those limitations affect attribution of the acquisition path. They do not change the confirmed toll fraud, credential rotation, continued unauthorized traffic after rotation, or service suspension.
 
 See [Observed Production Incident](docs/observed-incident.md) for the sanitized chronology and evidence status.
 
@@ -60,7 +61,7 @@ Possession of an affected backup is the required precondition. Once the file is 
 
 - unauthorized outbound call origination
 - toll fraud across multiple carrier subaccounts
-- abuse of valid replacement credentials after rotation
+- continued unauthorized traffic attributed to affected SIP subaccounts after credential rotation
 - carrier fraud mitigation affecting legitimate customers
 - approximately 48 hours without outbound calling under the affected account structure
 
@@ -106,6 +107,7 @@ See [Severity and Classification](docs/severity-and-classification.md) for the s
 - [Technical Analysis](docs/technical-analysis.md)
 - [Observed Production Incident](docs/observed-incident.md)
 - [Severity and Classification](docs/severity-and-classification.md)
+- [CISA SSVC Exploitation Reassessment Request](docs/cisa-ssvc-correction-request.md)
 - [Disclosure Timeline](docs/disclosure-timeline.md)
 - [Evidence Manifest](evidence/README.md)
 

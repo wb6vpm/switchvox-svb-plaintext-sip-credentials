@@ -1,6 +1,12 @@
-blank_issues_enabled: true
+blank_issues_enabled: false
 
 contact_links:
   - name: Sangoma Security Advisory
     url: https://github.com/sangoma/security-switchvox/security/advisories/GHSA-mfm3-g35x-c9w8
     about: Read the vendor advisory, affected versions, and mitigation guidance.
+  - name: Report a New Switchvox Vulnerability Privately
+    url: https://github.com/sangoma/security-switchvox/security/advisories/new
+    about: Use Sangoma's private vulnerability-reporting form for a new or unpatched Switchvox issue.
+  - name: CISA SSVC Questions and Corrections
+    url: https://www.cisa.gov/resources-tools/resources/stakeholder-specific-vulnerability-categorization-ssvc
+    about: CISA directs SSVC questions to vulnerability@cisa.dhs.gov with SSVC in the subject line.
