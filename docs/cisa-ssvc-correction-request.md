@@ -49,7 +49,7 @@ The incident chronology, first-hand audit observations, and reproduced mechanics
 
 ## Public Support
 
-- [Public research snapshot at commit f6bda42](https://github.com/wb6vpm/switchvox-svb-plaintext-sip-credentials/tree/dc185fafc7a4705bb1ab8150e0493bb00eca68ad)
+- [Public research snapshot at commit dc185fa](https://github.com/wb6vpm/switchvox-svb-plaintext-sip-credentials/tree/dc185fafc7a4705bb1ab8150e0493bb00eca68ad)
 - [Technical Analysis](technical-analysis.md), including deterministic archive-extraction steps and a documented synthetic test case
 - [Observed Production Incident](observed-incident.md), including the sanitized chronology and evidentiary limits
 - [Evidence Manifest](../evidence/README.md), including the retained-correspondence inventory
