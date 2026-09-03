@@ -4,8 +4,8 @@ This timeline records discovery, vendor coordination, remediation, and publicati
 
 ## 2025-12-30
 
-- The vulnerability was identified during response to toll fraud involving multiple independent Switchvox PBX appliances, each using a separate SIP subaccount at the upstream carrier. On every affected PBX, audit entries reviewed during response showed creation and download of a fresh backup after the associated SIP credentials had been rotated.
-- Analysis of Switchvox `.svb` backups found plaintext SIP provider usernames, passwords, carrier addresses, DID assignments, and related configuration.
+- During response to toll fraud involving multiple independent Switchvox PBX appliances, each using a separate SIP subaccount at the upstream carrier, responders rotated the SIP credentials assigned to each affected PBX's carrier subaccount. The carrier then informed responders that affected SIP subaccounts were still sending unauthorized traffic after those rotations. That report prompted the researcher to review audit entries on every affected PBX. On each appliance, the entries showed creation and download of a fresh backup after the associated credential rotation.
+- Later authorized reproduction of Switchvox `.svb` backups established that they contained plaintext SIP provider usernames, passwords, carrier addresses, DID assignments, and related configuration.
 - The issue was reported to Sangoma security contacts.
 
 ## 2026-01-04
