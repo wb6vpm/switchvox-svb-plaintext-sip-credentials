@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-title: "Switchvox .svb Plaintext SIP Credentials Vulnerability Research"
+title: "CVE-2026-45362: Plaintext SIP Credentials in Switchvox Backups"
 message: "If you use this research, please cite it using the metadata below."
 type: software
 
@@ -11,10 +11,22 @@ authors:
 url: https://github.com/wb6vpm/switchvox-svb-plaintext-sip-credentials
 repository-code: https://github.com/wb6vpm/switchvox-svb-plaintext-sip-credentials
 
-date-released: 2026-03-03
-
 abstract: >
-  Documentation and technical analysis of plaintext SIP trunk credentials stored within Switchvox .svb backup files. The repository documents the backup archive structure, credential storage within database dumps, and the resulting ability to authenticate directly to upstream SIP carriers using exposed Switchvox SIP trunk credentials.
+  Technical analysis and incident documentation for CVE-2026-45362.
+  Sangoma Switchvox On-Premise releases before 8.4 could store configured live
+  SIP provider credentials in plaintext within .svb backups. Authorized testing
+  confirmed that recovered credentials could authenticate directly to upstream
+  SIP infrastructure. The vulnerability was discovered during response to a
+  production toll-fraud incident involving valid carrier credentials and
+  operational disruption.
+
+identifiers:
+  - type: other
+    value: "CVE-2026-45362"
+    description: "CVE identifier"
+  - type: url
+    value: "https://github.com/sangoma/security-switchvox/security/advisories/GHSA-mfm3-g35x-c9w8"
+    description: "Sangoma security advisory"
 
 keywords:
   - vulnerability research
@@ -24,5 +36,7 @@ keywords:
   - PBX
   - credential exposure
   - SIP trunk credentials
+  - toll fraud
+  - incident response
 
 license: MIT

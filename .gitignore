@@ -1,0 +1,8 @@
+# Sensitive Switchvox and incident artifacts
+*.svb
+*.pcap
+*.pcapng
+
+# Private evidence staging
+evidence/private/
+artifacts/

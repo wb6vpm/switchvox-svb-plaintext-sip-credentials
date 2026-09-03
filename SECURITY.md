@@ -1,21 +1,23 @@
-# Security Disclosure Status
+# Security Policy and Evidence Handling
 
-This repository documents a security vulnerability identified in Switchvox `.svb` backup files involving plaintext storage of SIP trunk credentials.
+This public repository documents CVE-2026-45362. Sangoma lists Switchvox 8.4 as the patched release.
 
-Coordinated disclosure with the vendor is currently in progress.
+## Documentation Corrections
 
-A GitHub Security Advisory has been opened to track the disclosure process:
+Open a GitHub issue for a factual correction, broken link, affected-version detail, or other non-sensitive documentation problem.
 
-GHSA: `GHSA-mfm3-g35x-c9w8`
+## Sensitive Evidence
 
-Security issues related to this vulnerability should be reported through the associated GitHub Security Advisory.
+Do not post live SIP credentials, customer backups, unredacted logs, packet captures, call-detail records, account identifiers, or personal information in a public issue.
 
-Additional technical details will be published following completion of the coordinated disclosure process.
+For sensitive evidence related to the incident documented here, use GitHub's private vulnerability-reporting option if it is available on the repository's Security tab. Otherwise, open a public issue containing only a non-sensitive description and request a private exchange method. Do not attach the evidence to that issue.
 
-This repository is currently private and will be made public after completion of coordinated disclosure.
+## New Product Vulnerabilities
 
-Disclosure timeline information is available in:
+Report a new or distinct Switchvox vulnerability privately to Sangoma. Do not use this repository as the first public disclosure channel for an unpatched issue.
 
-```
-timeline/disclosure.md
-```
+The vendor advisory for this vulnerability is [GHSA-mfm3-g35x-c9w8](https://github.com/sangoma/security-switchvox/security/advisories/GHSA-mfm3-g35x-c9w8).
+
+## Previously Created Backups
+
+Upgrading does not protect `.svb` files created by affected versions. If the chain of custody for an older backup is uncertain, protect or remove the file and rotate every credential stored in it.
