@@ -49,6 +49,7 @@ The incident chronology, first-hand audit observations, and reproduced mechanics
 
 ## Public Support
 
+- [Public research snapshot at commit f6bda42](https://github.com/wb6vpm/switchvox-svb-plaintext-sip-credentials/tree/dc185fafc7a4705bb1ab8150e0493bb00eca68ad)
 - [Technical Analysis](technical-analysis.md), including deterministic archive-extraction steps and a documented synthetic test case
 - [Observed Production Incident](observed-incident.md), including the sanitized chronology and evidentiary limits
 - [Evidence Manifest](../evidence/README.md), including the retained-correspondence inventory
@@ -87,7 +88,7 @@ During the response, I observed Switchvox audit entries showing creation and dow
 I later reproduced that affected Switchvox backups expose the current carrier username, password, provider address, and trunk context in plaintext. The incident chronology, audit observations, and reproduced mechanics are consistent with reacquisition from the downloaded backup, but do not establish that path conclusively. I no longer have the raw Switchvox audit entries or a standalone carrier authentication export, so I do not claim that the backup was the exclusive possible source or that the downloader's identity has been established.
 
 The public technical record is here:
-https://github.com/wb6vpm/switchvox-svb-plaintext-sip-credentials
+https://github.com/wb6vpm/switchvox-svb-plaintext-sip-credentials/tree/dc185fafc7a4705bb1ab8150e0493bb00eca68ad
 
 The CISA assessment reviewed for this request is here:
 https://github.com/cisagov/vulnrichment/blob/8456a09f90519e02a6ea1392914275c7cbcf2e64/2026/45xxx/CVE-2026-45362.json
