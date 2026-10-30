@@ -70,37 +70,8 @@ The researcher can provide the following to CISA through an approved private cha
 - contemporaneous response messages documenting credential replacement and migration to source-IP authentication
 - sanitized affected-version test artifacts or hashes, if requested
 
-Preserve retained messages and attachments, including complete headers, unchanged and hashed in controlled storage. Before transmission, confirm CISA's requested scope and approved secure channel. Provide separate minimized or redacted copies unless originals are specifically required and disclosure is authorized. Treat headers, attachments, IP addresses, ticket numbers, telephone numbers, account identifiers, exact call data, and exact timing data as potentially identifying. Production SIP credentials and customer data will not be posted publicly.
+Production SIP credentials and customer data are not included in the public repository.
 
-## Ready-to-Send Message
+## Request Status
 
-**Subject:** `Request to reevaluate SSVC Exploitation for CVE-2026-45362`
-
-```text
-CISA SSVC Team,
-
-I reported CVE-2026-45362, which concerns plaintext SIP authentication credentials in Sangoma Switchvox backups before version 8.4.
-
-CISA's current ADP enrichment lists Exploitation as none. The assessment is timestamped May 12, 2026, before Sangoma's June 8 advisory and before I published a revised incident record. I request that CISA reassess the Exploitation value. The public technical record appears to support poc. I also ask CISA to review my first-hand incident observations and retained private corroborating records and change the value to active. Active is the requested outcome; poc is the minimum supportable correction.
-
-The vulnerability was identified while I was analyzing carrier-confirmed unauthorized calling involving multiple independent Switchvox PBX appliances, each using a separate SIP subaccount at the upstream carrier. The carrier treated the activity as toll fraud. Retained carrier records substantiate repeated unauthorized activity, a temporary outbound-service suspension, restoration after mitigation, and an industry traceback request. These records establish the incident and its consequences; they do not independently establish how the credentials were obtained.
-
-After I rotated the SIP credentials assigned to each affected PBX's carrier subaccount, the carrier informed me that affected SIP subaccounts were still sending unauthorized traffic. That report prompted me to review audit entries on every affected Switchvox PBX. On each appliance, the entries showed creation and download of a fresh backup after the associated credentials had been rotated. Based on carrier and account records available during the response, my contemporaneous assessment was that the replacement credentials had been reacquired and used.
-
-I later reproduced that affected Switchvox backups expose the current carrier username, password, provider address, and trunk context in plaintext. The multi-appliance incident chronology, audit observations, and reproduced mechanics are consistent with reacquisition from the downloaded backups, but do not establish that path conclusively. The backup creation and download events on every affected PBX are based on my direct observations during incident response. During the active response, containment, credential rotation, and service restoration were the immediate priorities, so I did not separately export the audit entries for long-term preservation. I have not since recovered the raw entries, and I also do not have a standalone carrier authentication export. The underlying artifacts are therefore not currently available for independent reexamination. Accordingly, I do not identify the person or system that initiated the backup activity or claim that the downloaded backups were the exclusive possible source. That limitation applies to attribution, not to what I observed.
-
-The public technical record is here:
-https://github.com/wb6vpm/switchvox-svb-plaintext-sip-credentials/tree/701510b9683aac6858dc970c93871812217d125e
-
-The CISA assessment reviewed for this request is here:
-https://github.com/cisagov/vulnrichment/blob/8456a09f90519e02a6ea1392914275c7cbcf2e64/2026/45xxx/CVE-2026-45362.json
-
-At minimum, the public extraction steps and the CISA Coordinator definition appear to support poc. I ask CISA to determine whether my first-hand observations and the retained private corroborating records satisfy active.
-
-Please provide an approved secure method and requested scope for the retained carrier correspondence and other sensitive supporting records. I will preserve the source records and provide minimized, redacted, or original material as authorized and appropriate without exposing production credentials or customer data publicly.
-
-Michael Overholser
-GitHub: wb6vpm
-```
-
-Per [CISA's SSVC guidance](https://www.cisa.gov/resources-tools/resources/stakeholder-specific-vulnerability-categorization-ssvc), this request should be emailed to `vulnerability@cisa.dhs.gov` with `SSVC` in the subject line. This document is a prepared request, not a claim that CISA has already reviewed or accepted the correction.
+This document is a prepared reassessment request. It does not claim that CISA has reviewed or accepted the proposed correction.
